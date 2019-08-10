@@ -11,7 +11,33 @@
 
 // https://www.codewars.com/kata/558fc85d8fd1938afb000014/train/javascript
 
+// UPDATED
 // MY SOLUTION
+// .sort((a,b)=> a-b)    ascending numberical sort
+function sumTwoSmallestNumbers(numbers){
+  let sortArr = numbers.sort((a,b)=>a-b)
+  let smallNum1 = sortArr[0]
+  let smallNum2 = sortArr[1]
+  return smallNum1 + smallNum2
+
+
+}
+// TESTS
+sumTwoSmallestNumbers([19, 5, 42, 2, 77])
+//7
+sumTwoSmallestNumbers([10, 343445353, 3453445, 3453545353453])
+//3453455
+
+
+
+
+
+
+
+
+
+// FIRST ATTEMPT SOLUTION
+
 function sumTwoSmallestNumbers(numbers){
   let smallest = 0
   let secSmallest = 0
