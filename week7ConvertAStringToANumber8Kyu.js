@@ -12,6 +12,14 @@
 // stringToNumber("-7"  ) == -7
 // FUNDAMENTALS PARSING ALGORITHMS STRINGS
 
+
+//UPDATED
+//NEW SOLUTION
+var stringToNumber = function(str){
+  return Number(str);
+}
+
+
 // MY SOLUTION
 let stringToNumber = function(str){
   number = parseFloat(str)
