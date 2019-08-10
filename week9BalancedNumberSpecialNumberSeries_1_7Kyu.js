@@ -15,6 +15,23 @@
 //
 // Return the result as String
 
+// Manually convert arrString to arrNumber w/o .map(Number)
+function balancedNum(number){
+  let sumFirstHalf = 0
+  let sumLastHalf = 0
+  let arr = number.toString().split("")
+  let numArr = []
+  for(let i=0; i<arr.length; i++){
+    numArr.push(Number(arr[i]))
+  }
+  // ...
+  // ...
+  // ...
+  // ...
+}
+
+
+
 //MY SOLUTION
 //SHORTER SOLUTION
 function balancedNum(number){
