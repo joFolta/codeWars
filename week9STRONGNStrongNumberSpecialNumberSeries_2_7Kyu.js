@@ -12,7 +12,29 @@
 // Number passed is always Positive .
 // Return the result as String
 
-//MY SOLUTION
+//UPDATED SOLUTION
+function strong(n){
+  let finalSum = 0
+  let str = n.toString()
+  let factorial = 1
+  let maxJ = 0
+  for(let i=0; i<str.length; i++){
+    factorial = 1
+    maxJ = Number(str[i])
+    for(let j=2; j<=maxJ; j++){
+      factorial *= j
+    }
+    finalSum += factorial
+  }
+  return n == finalSum ? "STRONG!!!!" : "Not Strong !!"
+}
+strong(145)
+
+//2 loops (nested loops)
+O(N^2) time complexity
+
+
+//OLD SOLUTION
 function strong(n) {
   let sumAllFactorial = 0
 
