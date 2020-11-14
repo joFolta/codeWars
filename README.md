@@ -1,4 +1,5 @@
-# CODEWARS
-My weekly trainings with codewars questions, my solutions, and any helpful hints are contained here.
-Visit https://www.codewars.com/ to start playing today and improve your skills.
-![Website Preview](/img/preview.png)
+# CODEWARS / LEETCODE
+My weekly trainings with codewars/leetcode questions, my solutions, and any helpful hints are contained here.
+Visit https://www.codewars.com/ / https://leetcode.com/ to start playing today and improve your skills.
+![Codewars Icon](img/codewars_icon.png)
+![Leetcode Icon](img/leetcode_icon.png)
