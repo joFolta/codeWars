@@ -14,3 +14,18 @@
 String.prototype.toJadenCase = function() {
    return this.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
  };
+ 
+ String.prototype.toJadenCase = function() {
+   const sentence = this;
+   const words = sentence.split(' ');
+   const capitalizedWords = [];
+   for(let i = 0; i < words.length; i++){
+     const firstLetter = words[i][0];
+     const restOfWord = words[i].slice(1);
+     const firstLetterCapitalized = firstLetter.toUpperCase();
+     const capitalizedWord = firstLetterCapitalized + restOfWord;
+     capitalizedWords.push(capitalizedWord);
+   };
+   const fixedSentence = capitalizedWords.join(' ');
+   return fixedSentence
+ };
