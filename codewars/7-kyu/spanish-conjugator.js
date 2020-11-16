@@ -171,3 +171,17 @@ function conjugate(verb) {
     };
   };
 };
+
+function conjugate(verb) {
+  const dictionary = {
+    ar:['o', 'as', 'a', 'amos', 'áis', 'an'],
+    er:['o', 'es', 'e', 'emos', 'éis', 'en'],
+    ir:['o', 'es', 'e', 'imos', 'ís', 'en']
+  };
+  const verbRoot = verb.slice(0,-2);
+  const verbSuffix = verb.slice(-2);
+  const conjugations = dictionary[verbSuffix].map(personalSuffix => verbRoot + personalSuffix);
+  return {
+    [verb]:conjugations
+  };
+};
