@@ -53,3 +53,18 @@ function rowWeights(array) {
   })
   return [team1, team2];
 };
+
+function rowWeights(array) {
+  return [
+    array.filter((el, index) => index % 2 === 0).reduce((acc, el) => acc + el, 0),
+    // non-zero remainder is truthy
+    array.filter((el, index) => index % 2 !== 0).reduce((acc, el) => acc + el, 0)
+    ]
+};
+
+function rowWeights(array) {
+  return [
+    array.filter((el, index) => index % 2 === 0).reduce((acc, el) => acc + el, 0),
+    array.filter((el, index) => index % 2).reduce((acc, el) => acc + el, 0)
+    ]
+};
