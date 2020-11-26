@@ -32,12 +32,7 @@ In the result codes and their values are in the same order as in M.
 */
 
 function stockList(listOfArt, listOfCat) {
-  console.log(listOfArt)
-  console.log(listOfCat)
-  if (listOfArt === []) { 
-    return '';
-  }; 
-  if (listOfCat === []) {
+  if (!listOfCat.length || !listOfArt.length) {
     return '';
   };
  
