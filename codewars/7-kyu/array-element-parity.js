@@ -36,3 +36,16 @@ function solve(arr) {
    }
   };
 };
+
+function solve(arr) {
+  const mySet = new Set(arr);
+  for (item of mySet) {
+    if (!mySet.has(-item)) {
+      return item;
+    };
+  };
+};
+
+function solve(arr) {
+  return [...new Set(arr)].reduce((accumulator, current) => accumulator + current)
+}
