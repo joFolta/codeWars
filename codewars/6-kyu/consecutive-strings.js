@@ -53,3 +53,16 @@ function longestConsec(strarr, k) {
   };
   return earliestTuple[0];
 };
+
+// clean answer from another user
+function longestConsec(strarr, k) {
+  if (k <= 0) {return ''}
+  
+  let max = ''
+  
+  for (let i=0; i<strarr.length-k+1; i++) {
+    const str = strarr.slice(i,i+k).join('')
+    if (max.length < str.length) {max = str}
+  }
+  return max
+}
