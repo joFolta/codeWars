@@ -55,3 +55,16 @@ function daysRepresented(trips) {
   })
   return set.size
 }
+
+
+
+
+function daysRepresented(trips) {
+  const mySet = new Set();
+  trips.map(trip => {
+    for(let i=trip[0]; i<=trip[1]; i++){
+      mySet.add(i)
+    }
+  })
+  return mySet.size
+}
