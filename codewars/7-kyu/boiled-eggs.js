@@ -30,3 +30,5 @@ const cookingTime = (eggs) => {
 }
 
 const cookingTime = (eggs) => (Math.floor(eggs/8) + (eggs%8==0?0:1))*5
+
+const cookingTime = (eggs) => Math.ceil(eggs/8) *5
