@@ -35,4 +35,17 @@ function reverseString(str) {
   return revString
 }
 
+function reverseString(str) {
+  let revString = ''
+  for(let i=0; i<str.length; i++){
+    revString = str[i] + revString
+  }
+  return revString
+}
+
+function reverseString(str) {
+  return str.split('').reduce((acc,char) => char + acc, '')
+}
+
 reverseString("hello")
+
