@@ -15,13 +15,10 @@ Examples
 */
 
 function highestRank(arr) {
-  let counter = {}
+  const counter = {}
   arr.map(n => counter[n] ? counter[n]++ : counter[n] = 1)
-  console.log(counter)
-  let sortedVals = Object.keys(counter).sort((a,b) => counter[b]-counter[a])
-  console.log(sortedVals)
-  console.log(sortedVals[0])
-  return sortedVals[0]
-  // return sortedVals[0]
-  // return counter[sortedVals[0]] != counter[sortedVals[1]] ? sortedVals[0] : sortedVals[0] > sortedVals[1] ? sortedVals[0] : sortedVals[1]
+  const sortedKeysByVals = Object.keys(counter).sort((a,b) => counter[b]-counter[a])
+  const firstKey = sortedKeysByVals[0]
+  const secondKey = sortedKeysByVals[1]
+  return counter[firstKey] != counter[secondKey] ? Number(firstKey) : firstKey > secondKey ? Number(firstKey) : Number(secondKey)
 }
