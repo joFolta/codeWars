@@ -53,3 +53,51 @@ function missingValues(arr) {
   if (!twin) twin = sortedArr[sortedArr.length-1]
   return solo*solo*twin
 }
+
+// attempt this soln
+function missingValues(arr) {
+  //coding and coding..
+
+  let obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+
+    if (obj[arr[i]]) {
+      obj[arr[i]] += 1;
+    } else {
+      obj[arr[i]] = 1;
+    }
+
+
+  }
+  let x, y;
+  for (key in obj) {
+    if (obj[key] === 1) {
+      x = key;
+    } else if (obj[key] === 2) {
+      y = key;
+    }
+  }
+
+  //console.log(obj);
+  return x * x * y;
+
+}
+
+// success!!!
+function missingValues(arr) {
+  const map = {}
+  for (const num of arr) {
+    !map[num] ? 
+      map[num] = 1 :
+      map[num] ++
+  }
+  
+  let solo, twin
+  for (key in map) {
+    if (map[key] === 1) solo = key
+    if (map[key] === 2) twin = key
+  }
+  
+  return solo*solo*twin
+}
