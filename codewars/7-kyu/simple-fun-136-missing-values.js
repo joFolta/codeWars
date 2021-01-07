@@ -28,6 +28,7 @@ an array contains positive integers.
 The value of x * x * y
 */
 
+// 1)
 function missingValues(arr) {
   const sortedArr = arr.sort((a,b) => a-b)
   let solo, twin
@@ -54,37 +55,7 @@ function missingValues(arr) {
   return solo*solo*twin
 }
 
-// attempt this soln
-function missingValues(arr) {
-  //coding and coding..
-
-  let obj = {};
-
-  for (let i = 0; i < arr.length; i++) {
-
-    if (obj[arr[i]]) {
-      obj[arr[i]] += 1;
-    } else {
-      obj[arr[i]] = 1;
-    }
-
-
-  }
-  let x, y;
-  for (key in obj) {
-    if (obj[key] === 1) {
-      x = key;
-    } else if (obj[key] === 2) {
-      y = key;
-    }
-  }
-
-  //console.log(obj);
-  return x * x * y;
-
-}
-
-// success!!!
+// 2) using object
 function missingValues(arr) {
   const map = {}
   for (const num of arr) {
