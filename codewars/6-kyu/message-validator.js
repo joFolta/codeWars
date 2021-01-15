@@ -16,16 +16,83 @@ Every number must match the number of character in the following substring, othe
 If the message is an empty string, you should return true
 */
 
+// only works for single digit nums
 function isAValidMessage(message) {
   console.log(message)
   // if (!message) return true
   for (let i=0; i<message.length; i++) {
     if (!/\d/.test(message[0])) return false
     if (/\d/.test(message[i])) {
-      // TODO: need to account for 2,3,... digit number
+      
       for (let j=1; j<=message[i]; j++) {
         console.log(i,j)
         if (/\d/.test(message[i+j]) || !message[i+j]) {
+          return false
+        }
+      }
+    }
+  }
+  return true
+}
+
+// seems to work for 2 digit nums
+function isAValidMessage(message) {
+  console.log(message)
+  
+  for (let i = 0; i < message.length; i++) {
+    if (!/\d/.test(message[0])) return false
+    
+    let j = 1
+    let jMax = message[i]
+    if (/\d/.test(message[i])) {
+      // account for 2 digit num
+      if (/\d/.test(message[i+1])) {
+        j = 2
+        jMax = Number(`${message[i]} + ${message[i+1]}`)
+      }
+
+      for (j; j <= jMax; j++) {
+        console.log(i, j)
+        if (/\d/.test(message[i + j]) || !message[i + j]) {
+          return false
+        }
+      }
+    }
+  }
+  return true
+}
+
+//mostly done....fails on occasional attempts
+// make it work for x digit nums
+function isAValidMessage(message) {
+  console.log(message)
+  console.log("_______________")
+  
+  if (!message) return true
+  if (!/\d/.test(message[0])) return false
+
+  for (let i = 0; i < message.length; i++) {
+    console.log('*',message[i])
+    let letter = 1
+    let lastLetter = message[i]
+    if (/\d/.test(message[i])) {
+    // account for any digit num
+    //length 4 , k 1,2,3 i 0,1
+      //for (let k=1; k<message.length-i; k++) {
+      let k = 1
+      while (/\d/.test(message[i + k])) {
+        //if (/\d/.test(message[i + k])) {
+          letter++
+          lastLetter = Number(`${lastLetter}${message[i+k]}`)
+          console.log('LL',lastLetter)
+          k++
+        //}
+      }
+      
+      // check that the above num of letters follows
+      for (letter; letter <= lastLetter; letter++) {
+        console.log(message[i], message[i+letter], letter, lastLetter)
+        if (/\d/.test(message[i + letter]) || !message[i + letter]) {
           return false
         }
       }
