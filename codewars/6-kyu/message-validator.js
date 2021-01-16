@@ -62,37 +62,29 @@ function isAValidMessage(message) {
   return true
 }
 
-//mostly done....fails on occasional attempts
-// make it work for x digit nums
+// ugly, but made it work for x digit nums
 function isAValidMessage(message) {
-  console.log(message)
-  console.log("_______________")
-  
+
   if (!message) return true
   if (!/\d/.test(message[0])) return false
 
   for (let i = 0; i < message.length; i++) {
-    console.log('*',message[i])
-    let letter = 1
-    let lastLetter = message[i]
+    
     if (/\d/.test(message[i])) {
-    // account for any digit num
-    //length 4 , k 1,2,3 i 0,1
-      //for (let k=1; k<message.length-i; k++) {
-      let k = 1
-      while (/\d/.test(message[i + k])) {
-        //if (/\d/.test(message[i + k])) {
-          letter++
-          lastLetter = Number(`${lastLetter}${message[i+k]}`)
-          console.log('LL',lastLetter)
-          k++
-        //}
+      let offset = 1
+      let lastLetter = message[i]      
+
+      // account for multi-digit num
+      while (/\d/.test(message[i + offset])) {
+        lastLetter = Number(`${lastLetter}${message[i+offset]}`)
+        offset++
       }
-      
-      // check that the above num of letters follows
-      for (letter; letter <= lastLetter; letter++) {
-        console.log(message[i], message[i+letter], letter, lastLetter)
-        if (/\d/.test(message[i + letter]) || !message[i + letter]) {
+      const accountForExtraDigitsPushingOutStartingLetter = offset - 1
+      lastLetter = Number(lastLetter) + accountForExtraDigitsPushingOutStartingLetter
+
+      // check that the above num has num letters after it
+      for (offset; offset <= lastLetter; offset++) {
+        if (/\d/.test(message[i + offset]) || !message[i + offset]) {
           return false
         }
       }
