@@ -29,3 +29,7 @@ function findShort(s) {
   })
   return shortest.length
 }
+
+function findShort(s) {
+  return Math.min(...s.split(' ').map(word => word.length))
+}
