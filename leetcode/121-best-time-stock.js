@@ -68,3 +68,18 @@ var maxProfit = function(prices) {
   }
   return currentMax
   };
+  
+  // Recollection attempt after yesterday watching solution @ https://youtu.be/mmIMpgh67vg
+  var maxProfit = function(prices) {
+    let minVal = prices[0];
+    let maxMoney = 0;
+    for (price of prices) {
+      if (price < minVal) {
+        minVal = price;
+      }
+      if (price - minVal > maxMoney) {
+        maxMoney = price - minVal;
+      }
+    }
+    return maxMoney;
+  };
