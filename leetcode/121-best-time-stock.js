@@ -83,3 +83,18 @@ var maxProfit = function(prices) {
     }
     return maxMoney;
   };
+  
+  // flipped logic solution
+  var maxProfit = function(prices) {
+    let maxVal = prices[prices.length-1];
+    let profit = 0;
+    for (let i=prices.length-1; i>=0; i--) {
+      if (prices[i] > maxVal) {
+        maxVal = prices[i];
+      }
+      if (maxVal - prices[i] > profit) {
+        profit = maxVal - prices[i];
+      }
+    }
+    return profit;
+  };
