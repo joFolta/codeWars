@@ -22,6 +22,9 @@ eight(dividedBy(three()));
 
 //function zero(x) {x===undefined ? 0 : '0'+x}
 
+//TODO: attempt closure soln
+
+//my non-closure soln
 function num(n,x) {
   if (x===undefined) {return n}
   if (x.includes('/')) {
