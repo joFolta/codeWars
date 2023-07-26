@@ -28,7 +28,7 @@ Constraints:
 -109 <= nums[i] <= 109
 */
 
-// time complexity: O(n^2) - quadratic time due to nested loops
+// time complexity: O(n^2) - quadratic time due to nested loops (BAD)
 // space complexity: O(1) - constant space
 /**
  * @param {number[]} nums
