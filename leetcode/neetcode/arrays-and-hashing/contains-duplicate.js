@@ -28,6 +28,8 @@ Constraints:
 -109 <= nums[i] <= 109
 */
 
+// time complexity: O(n^2) - quadratic time due to nested loops
+// space complexity: O(1) - constant space
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -47,6 +49,3 @@ var containsDuplicate = function (nums) {
 
   return false;
 };
-
-// time complexity: O(n^2) - quadratic time due to nested loops
-// space complexity: O(1) - constant time
