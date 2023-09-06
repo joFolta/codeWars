@@ -62,7 +62,7 @@ Both list1 and list2 are sorted in non-decreasing order.
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
+var mergeTwoLists = function (list1, list2) {
     if (!list1 && !list2) {
         return null;
     }
@@ -89,18 +89,18 @@ var mergeTwoLists = function(list1, list2) {
                 pointerC.next = new ListNode(pointerA.val);
                 pointerC = pointerC.next;
             }
-            
+
             pointerA = pointerA.next;
         } else { // pointerB.val equal or greater than pointerA
             if (!pointerC) {
                 headList3 = new ListNode(pointerB.val);
                 pointerC = headList3;
             } else {
-                pointerC.next = new ListNode(pointerB.val);     
+                pointerC.next = new ListNode(pointerB.val);
                 pointerC = pointerC.next;
             }
 
-            pointerB = pointerB.next; 
+            pointerB = pointerB.next;
         }
     }
 
@@ -116,3 +116,8 @@ var mergeTwoLists = function(list1, list2) {
     return headList3;
 
 };
+
+// TODO
+// Marco's challenge: try again but with adding no additional memory usage
+// i.e. Space complexity: O(N), not O(2N)
+// w/o using new ListNode()
