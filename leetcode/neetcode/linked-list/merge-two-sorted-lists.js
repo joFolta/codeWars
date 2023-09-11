@@ -53,11 +53,38 @@ Both list1 and list2 are sorted in non-decreasing order.
 
  */
 
-// TODO: EXPLORE ALL SOLUTIONS (see neetcode.io)
+/**
+ * Time complexity: O(N) linear time - just a single loop
+ * Space complexity: O(2N) linear space x2 - in the worst case, input + equal size output (doubles the memory of the input size)
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+var mergeTwoLists = function (list1, list2) {
+    const dummy = new ListNode(); // create empty intial node
+    let tail = dummy;
+
+    while (list1 && list2) { // Time O(N + M)
+        if (list2.val > list1.val) {
+            tail.next = list1;
+            list1 = list1.next;
+        } else {
+            tail.next = list2;
+            list2 = list2.next;
+        }
+
+        tail = tail.next;
+    }
+
+    if (list1) tail.next = list1;
+    if (list2) tail.next = list2;
+
+    return dummy.next;
+}
 
 /**
  * Time complexity: O(N) linear time - just a single loop
- * Space complexity: O(2N) linear time x2 - in the worst case, input + equal size output (doubles the memory of the input size)
+ * Space complexity: O(N + M) linear space x2 - in the worst case, input + equal size output (doubles the memory of the input size)
  * @param {ListNode} list1
  * @param {ListNode} list2
  * @return {ListNode}
@@ -120,6 +147,7 @@ var mergeTwoLists = function (list1, list2) {
 // ???
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/
+ * Time O(N + M) | Space O(N + M)
  * 
  * @param {ListNode} list1
  * @param {ListNode} list2
