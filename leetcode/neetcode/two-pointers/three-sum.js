@@ -40,7 +40,9 @@ Constraints:
 */
 
 /**
- *  Time O(N^2)
+ * Pointers
+ * Time O(N^2)
+ * Space O(1)
  * @param {number[]} nums
  * @return {number[][]}
  */
