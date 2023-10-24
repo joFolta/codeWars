@@ -36,7 +36,7 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 // TODO: EXPLORE ALL SOLUTIONS (see neetcode.io)
 
 /**
- * Time complexity: O(N^2) quadratic time
+ * Time complexity: O(N^2) quadratic time - TOO SLOW: Not O(N)
  * Space complexity: O(N) linear space
  * @param {number[]} nums
  * @return {number[]}
@@ -59,4 +59,29 @@ var productExceptSelf = function (nums) {
   }
 
   return results;
+};
+
+/**
+ * Time complexity: Time O(N)
+ * Space complexity: Space O(N)
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function (nums) {
+  const result = [];
+  let prefix = 1; // prefix is the product of nums BEFORE the num (start with value 1 b/c nums[0] doesn't have anything before it)
+  let postfix = 1; // postfix is the product of nums AFTER the num (start with value 1 b/c nums[nums.length-1] doesn't have anything after it)
+
+  for (let i = 0; i < nums.length; i++) {
+    result[i] = prefix;
+    prefix *= nums[i]; // saving current num to multiply to the next num's product
+  }
+
+  // iterate backwards
+  for (let i = nums.length - 1; i >= 0; i--) {
+    result[i] *= postfix; // *= to accumulate it on top of the existing the prefix product
+    postfix *= nums[i]; // save
+  }
+
+  return result;
 };
